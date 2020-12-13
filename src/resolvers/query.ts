@@ -1,4 +1,6 @@
 import { IResolvers } from 'graphql-tools';
+import { LIST } from "./resolversMap";
+
 
 const query: IResolvers = {
     Query: {
@@ -10,6 +12,9 @@ const query: IResolvers = {
         },
         helloToGraphQLCourse(): string {
             return 'Hello to GraphQL Course!!';
+        },
+        list() {
+            return LIST;
         }
     }
 };
