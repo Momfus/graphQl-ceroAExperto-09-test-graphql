@@ -24,6 +24,7 @@ describe('Test Schema GraphQL', () => {
     tester = new EasyGraphQLTester(apiSchema);
   });
 
+  // Query
   describe('Type Root: Query ', () => {
 
     // hello
@@ -126,7 +127,32 @@ describe('Test Schema GraphQL', () => {
 
   });
 
-  describe('Type Root: Mutation ', () => {});
+  // Mutation
+  describe('Type Root: Mutation ', () => {
+
+    // list
+    it("Llamada 'add' válida ", () => {
+        const query = `
+                mutation addElement($value: String!) {
+                    add(value: $value)
+                }
+            `;
+
+        tester.test( true, query, { value: "Momfus" } );
+    });
+
+    it("Llamada 'add' inválida ", () => {
+        const query = `
+                query addElement($value: String!) {
+                    add(value: $value)
+                }
+            `;
+
+        tester.test( false, query, {} ); 
+    });
+
+
+  });
 
   /*
     after(function() {
