@@ -26,6 +26,7 @@ describe('Test Schema GraphQL', () => {
 
   describe('Type Root: Query ', () => {
 
+    // hello
     it("Llamada 'hello' válida ", () => {
       const query = `
                 {
@@ -53,6 +54,75 @@ describe('Test Schema GraphQL', () => {
 
               tester.test( false, query, {} ); // SE espera que la prueba sea fallida (ya que hello no tiene atributos id y name)
     });
+
+    // helloWithName
+    it("Llamada 'helloWithName' válida ", () => {
+        const query = `
+                query helloWithName($name: String!) {
+                    helloWithName(name: $name)
+                }
+              `;
+              tester.test( true, query, {name: "Momfus"} );
+      });
+  
+      it("Llamada 'helloWithName' inválida ", () => {
+            const query = `
+                    query helloWithName($name: String!) {
+                        helloWithName(name: $name)
+                    }
+                    `;
+  
+                tester.test( false, query, {} ); 
+      });
+  
+      // helloToGraphQLCourse
+      it("Llamada 'helloToGraphQLCourse' válida ", () => {
+        const query = `
+                  {
+                    helloToGraphQLCourse
+                  }
+              `;
+
+              tester.test( true, query, {} );
+      });
+  
+      it("Llamada 'helloToGraphQLCourse' inválida ", () => {
+          const query = `
+                    {
+                        helloToGraphQLCourse {
+                            id
+                            name
+                        }
+                    }
+                `;
+  
+                tester.test( false, query, {} );
+      });
+  
+      // list
+      it("Llamada 'list' válida ", () => {
+        const query = `
+                  {
+                    list
+                  }
+              `;
+
+              tester.test( true, query, {} );
+      });
+  
+      it("Llamada 'list' inválida ", () => {
+          const query = `
+                    {
+                        list {
+                            id
+                            name
+                        }
+                    }
+                `;
+  
+                tester.test( false, query, {} ); 
+      });
+
 
   });
 
