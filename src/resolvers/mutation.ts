@@ -7,6 +7,10 @@ const mutation: IResolvers = {
             LIST.push(value);
             return LIST;
         },
+        removeLast() {
+            (LIST.length > 0 ) ? LIST.pop(): ''; // Si tiene algun elemento quitarlo, sino devolver nada
+            return LIST;
+        }
     }
 }
 

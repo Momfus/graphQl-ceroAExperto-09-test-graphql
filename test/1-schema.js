@@ -151,6 +151,26 @@ describe('Test Schema GraphQL', () => {
         tester.test( false, query, {} ); 
     });
 
+    // RemoveLast
+    it("Llamada 'removeLast' válida ", () => {
+        const query = `
+                mutation {
+                    removeLast
+                }
+            `;
+
+        tester.test( true, query, {} );
+    });
+
+    it("Llamada 'removeLast' inválida ", () => {
+        const query = `
+                query {
+                    removeLast
+                }
+            `;
+
+        tester.test( false, query, {} ); 
+    });
 
   });
 
