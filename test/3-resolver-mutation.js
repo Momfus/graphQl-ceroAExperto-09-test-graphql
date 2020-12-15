@@ -23,6 +23,17 @@ describe("Testing Resolvers - Type Root - Mutation", () => {
 
     });
 
+    afterEach(async() => {
+      // console.log('Se ejecuta despues del it')
+      // const listLength = LIST.length;
+      // console.log(LIST);
+      // for( let i = 0; i < listLength, i++ ) {
+      //   LIST.pop();
+      // }
+      // console.log(LIST);
+
+    });
+
     it("Comprobar que 'add' devuelve correcto", async() => { // Necesita ser asíncrona por el tipo de test a realizar
       const query = `
         mutation addMutation($value: String!) {
