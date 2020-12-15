@@ -67,6 +67,21 @@ describe("Testing Resolvers - Type Root - Query", () => {
         expect(result.data.helloToGraphQLCourse).not.to.equal('Hola');
 
     });
+    
+    // list
+    it("Comprobar que 'list' devuelve correcto y tiene cero elementos", async() => { 
+    
+        // el nombre de la query puede ser cualquier cosa
+        const query = `
+        {
+            list
+        }`;
+
+        const result = await tester.graphql(query, undefined, undefined, {});
+
+        expect(result.data.list).to.have.lengthOf(0);
+
+    });
 
 
 
