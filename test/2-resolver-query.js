@@ -78,7 +78,6 @@ describe("Testing Resolvers - Type Root - Query", () => {
         }`;
 
         const result = await tester.graphql(query, undefined, undefined, {});
-
         expect(result.data.list).to.have.lengthOf(0);
 
     });
